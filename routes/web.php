@@ -23,24 +23,27 @@ use Barryvdh\Debugbar\Facade as Debugbar;
 
 // Route::resource('blog', postsController::class);
 
-// Route::get('/', homeController::class);
+Route::get('/', homeController::class);
 
 
 //GET
 Route::get('/blog', [postsController::class, 'index']);
-Route::get('/blog/1', [postsController::class, 'show']);
+Route::get('/article/{id?}', [postsController::class, 'show']);
 
 //POST
 Route::get('/blog/create', [postsController::class, 'create']);
 Route::post('/blog', [postsController::class, 'store']);
 
 //PUT AND PATCH
-Route::get('blog/edit/1', [postsController::class, 'edit']);
-Route::patch('/blog/1', [postsController::class, 'update']);
+Route::get('blog/edit/{id}', [postsController::class, 'edit']);
+Route::patch('/blog/{id}', [postsController::class, 'update']);
 
 //delete
-Route::delete('/blog/1', [postsController::class, 'destroy']);
+Route::delete('/blog/{id}', [postsController::class, 'destroy']);
 
 //multiple http verbs 
 Route::match(['get', 'post'], '/blog', [postsController::class, 'index']);
 Route::any('/blog', [postsController::class, 'index']);
+
+//Return view 
+Route::view('/blog', 'blog.index', ['name' => 'Code with seun']);
