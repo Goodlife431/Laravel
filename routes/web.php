@@ -24,11 +24,19 @@ use Barryvdh\Debugbar\Facade as Debugbar;
 // Route::resource('blog', postsController::class);
 
 Route::get('/', homeController::class);
-
+//where function for intergers and strings 
+//regex expression for numbers 
+//Route::get('/blog/{id?}', [postsController::class, 'show'])->where('id', '[0-9]+' );
+//regex expression for alphets 
+//Route::get('/blog/{name}', [postsController::class, 'show'])->where('name', '[A-Za-z]+');
+//where function for numbers
+//Route::get('/blog/{id?}', [postsController::class, 'show'])->whereNumber('id');
+//where function for alphabelts 
+Route::get('/blog/{name}', [postsController::class, 'show'])->whereAlpha('name');
 
 //GET
 Route::get('/blog', [postsController::class, 'index']);
-Route::get('/article/{id?}', [postsController::class, 'show']);
+// Route::get('/blog/{id?}', [postsController::class, 'show']);
 
 //POST
 Route::get('/blog/create', [postsController::class, 'create']);
