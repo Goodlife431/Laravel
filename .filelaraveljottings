@@ -1,0 +1,10 @@
+To makemigrations:
+php artisan make:migrations name 
+
+To makemigrations and prefill the migration with code design to create a table name:
+php artisan make:migrations name --create=posts
+
+
+
+To makemigrations and prefill the migration from modification to existing table:
+php artisan make:migrations name --table=posts
