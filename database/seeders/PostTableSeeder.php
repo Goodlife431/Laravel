@@ -19,16 +19,16 @@ class PostTableSeeder extends Seeder
                 'excerpt'=> 'Summary of post One',
                 'body'=> 'Body of post one',
                 'image_path'=> 'Empty',
-                'is_published'=> 'true',
-                'min_to_read'=> '2'
+                'is_published'=> '1',
+                'min_to_read'=> '2',
             ],
             [
                 'title'=> 'Post Two',
                 'excerpt'=> 'Summary of post Two',
                 'body'=> 'Body of post Two',
                 'image_path'=> 'Empty',
-                'is_published'=> 'false',
-                'min_to_read'=> '2'
+                'is_published'=> '1',
+                'min_to_read'=> '2',
             ]
         ];
 
