@@ -32,26 +32,27 @@ Route::get('/', homeController::class);
 //where function for numbers
 //Route::get('/blog/{id?}', [postsController::class, 'show'])->whereNumber('id');
 //where function for alphabelts 
-Route::get('/blog/{name}', [postsController::class, 'show'])->whereAlpha('name');
+//Route::get('/blog/{name}', [postsController::class, 'show'])->whereAlpha('name');
 
 //GET
-Route::get('/blog', [postsController::class, 'index']);
-// Route::get('/blog/{id?}', [postsController::class, 'show']);
+Route::get('/blog', [postsController::class, 'index'])->name('blog.index');
+Route::get('/blog/{id}', [postsController::class, 'show'])->name('blog.show');
 
 //POST
-Route::get('/blog/create', [postsController::class, 'create']);
-Route::post('/blog', [postsController::class, 'store']);
+Route::get('/blog/create', [postsController::class, 'create'])->name('blog.create');
+Route::post('/blog', [postsController::class, 'store'])->name('blog.store');
 
 //PUT AND PATCH
-Route::get('blog/edit/{id}', [postsController::class, 'edit']);
-Route::patch('/blog/{id}', [postsController::class, 'update']);
+Route::get('blog/edit/{id}', [postsController::class, 'edit'])->name('blog.edit');
+Route::patch('/blog/{id}', [postsController::class, 'update'])->name('blog.update');
 
 //delete
-Route::delete('/blog/{id}', [postsController::class, 'destroy']);
+Route::delete('/blog/{id}', [postsController::class, 'destroy'])->name('blog.destroy');
 
 //multiple http verbs 
-Route::match(['get', 'post'], '/blog', [postsController::class, 'index']);
-Route::any('/blog', [postsController::class, 'index']);
+// Route::match(['get', 'post'], '/blog', [postsController::class, 'index']);
+// Route::any('/blog', [postsController::class, 'index']);
 
 //Return view 
-Route::view('/blog', 'blog.index', ['name' => 'Code with seun']);
+// Route::view('/blog', 'blog.index', ['name' => 'Code with seun']);
+

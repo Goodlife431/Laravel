@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+ // Replace with your Post model
+
+
 class postsController extends Controller
 {
     /**
@@ -11,8 +14,10 @@ class postsController extends Controller
      */
     public function index()
     {
-        return view('blog.index');
-    }
+         
+            return view('/blog.index');
+        }
+    
 
     /**
      * Show the form for creating a new resource.
