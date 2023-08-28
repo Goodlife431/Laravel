@@ -56,3 +56,19 @@ Route::delete('/blog/{id}', [postsController::class, 'destroy'])->name('blog.des
 //Return view 
 // Route::view('/blog', 'blog.index', ['name' => 'Code with seun']);
 
+
+
+
+//route chaining
+Route::prefix('/blog')->group( function () {
+    Route::get('/blog', [postsController::class, 'index'])->name('blog.index');
+    Route::get('/blog/{id}', [postsController::class, 'show'])->name('blog.show');
+
+    Route::get('/blog/create', [postsController::class, 'create'])->name('blog.create');
+    Route::post('/blog', [postsController::class, 'store'])->name('blog.store');
+
+    Route::get('blog/edit/{id}', [postsController::class, 'edit'])->name('blog.edit');
+    Route::patch('/blog/{id}', [postsController::class, 'update'])->name('blog.update');
+
+    Route::delete('/blog/{id}', [postsController::class, 'destroy'])->name('blog.destroy');
+});
