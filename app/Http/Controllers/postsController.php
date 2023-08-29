@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
  // Replace with your Post model
 
@@ -14,7 +15,16 @@ class postsController extends Controller
      */
     public function index()
     {
-         
+            // $posts = DB::select('SELECT * FROM posts where id = :id', ['id'=>1]);
+            // $posts = DB::insert('INSERT into posts (title, excerpt, body, image_path, is_published, min_to_read)
+            //  values (?,?,?,?,?,?)', ['test', 'test', 'test', 'test', true, 1]);
+            // $posts = DB::delete('DELETE FROM posts where id = ?', [103]);
+
+            $posts = DB::table('posts')
+            // ->select('title', 'body')
+            ->where('id', '>', '50')
+            ->get();
+            dd($posts);
             return view('/blog.index');
         }
     
