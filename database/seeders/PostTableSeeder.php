@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Posts;
+use App\Models\Post;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -33,7 +33,9 @@ class PostTableSeeder extends Seeder
         ];
 
         foreach($posts as $key => $value){
-            Posts::create($value);
+            Post::create($value);
         }
+        Post::factory(100)->create(['body'=> 'Overiding the body of our post']);
     }
 }
+
