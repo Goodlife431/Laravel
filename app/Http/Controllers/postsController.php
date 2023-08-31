@@ -15,36 +15,10 @@ class postsController extends Controller
      */
     public function index()
     {
-            // $posts = DB::select('SELECT * FROM posts where id = :id', ['id'=>1]);
-            // $posts = DB::insert('INSERT into posts (title, excerpt, body, image_path, is_published, min_to_read)
-            //  values (?,?,?,?,?,?)', ['test', 'test', 'test', 'test', true, 1]);
-            // $posts = DB::delete('DELETE FROM posts where id = ?', [103]);
-
-            $posts = DB::table('posts')
-            // ->select('title', 'body')
-            // ->where('id', '>', '50')
-            // ->whereBetween('min_to_read', [2,6])
-            // ->wherenotBetween('min_to_read', [2,6])
-            // ->whereIn('min_to_read', [2,6,8])
-            // ->whereNull('excerpt')
-            // ->whereNotNull('excerpt')
-            // ->select('min_to_read')
-            // ->distinct()
-            // ->orderBy('id', 'desc')
-            // ->skip(30)
-            // ->take(10)
-            // ->inRandomOrder()
-            // ->find(50);
-            // ->get();
-            // ->where('id', '50')->value('body');
-            // ->where('id', '>' , '50')
-            // ->count();
-            // ->min('min_to_read');
-            // ->max('min_to_read');
-            // ->sum('min_to_read');
-            ->avg('min_to_read');
-            dd($posts);
-            return view('/blog.index');
+            $posts = DB::table('posts')->get();
+            return view('/blog.index', [
+                'posts'=> $posts
+            ]);
         }
     
 

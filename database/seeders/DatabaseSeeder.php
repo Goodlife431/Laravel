@@ -5,8 +5,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
-use App\Models\Posts;
 use Database\Factories\PostFactory;
 use Illuminate\Database\Seeder;
 
