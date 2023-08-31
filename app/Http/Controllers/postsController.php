@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,10 +16,17 @@ class postsController extends Controller
      */
     public function index()
     {
-            $posts = DB::table('posts')->get();
-            return view('/blog.index', [
-                'posts'=> $posts
-            ]);
+            // $posts = DB::table('posts')->get();
+            // return view('/blog.index', [
+            //     'posts'=> $posts
+            // ]);
+
+            // $posts = Post::orderBy('id', 'desc')->take(10)->get();
+            // 
+            
+            $posts = Post::orderBy('updated_at', 'desc')->get();
+            dd($posts);
+            return view('blog.index');
         }
     
 
@@ -41,9 +49,11 @@ class postsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id = 1)
+    public function show($id)
     {
-        return $id;
+        return view('blog.show', [
+            'post' => Post::findOrFail($id)
+        ]);
     }
 
     /**

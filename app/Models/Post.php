@@ -12,15 +12,15 @@ class Post extends Model
 
     //protected $table = 'posts ';
     
-    protected $primaryKey = 'title';
+    // protected $primaryKey = 'title';
 
-    protected $timestamp = false;
+    // protected $timestamp = false;
 
-    protected $dateTime = 'U';
+    // protected $dateTime = 'U';
 
-    protected $connection = 'sqlite';
+    // protected $connection = 'sqlite';
 
-    protected $attribute = [
-        'is_published' => true
-    ];
+    // protected $attribute = [
+    //     'is_published' => true
+    // ];
 }
