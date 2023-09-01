@@ -1,6 +1,5 @@
 {
     "private": true,
-    "type": "commonjs",
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
@@ -9,23 +8,13 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "@babel/core": "^7.22.11",
-        "@babel/preset-env": "^7.22.14",
-        "autoprefixer": "^10.4.15",
-        "axios": "^1.1.2",
-        "babel-loader": "^9.1.3",
-        "laravel-vite-plugin": "^0.8.0",
-        "lodash": "^4.17.19",
-        "postcss": "^8.4.29",
-        "resolve-url-loader": "^4.0.0",
-        "sass": "^1.49.0",
-        "sass-loader": "^12.2.0",
-        "tailwindcss": "^3.3.3",
-        "vite": "^4.0.0"
-    },
-    "dependencies": {
-        "alpinejs": "^2.8.2",
+        "autoprefixer": "^10.4.7",
+        "axios": "^0.25",
         "laravel-mix": "^6.0.49",
-        "vue": "^3.3.4"
+        "laravel-vite-plugin": "^0.4.0",
+        "lodash": "^4.17.19",
+        "postcss": "^8.4.14",
+        "tailwindcss": "^3.1.6",
+        "vite": "^2.9.11"
     }
 }

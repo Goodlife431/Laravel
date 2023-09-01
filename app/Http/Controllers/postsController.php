@@ -24,9 +24,10 @@ class postsController extends Controller
             // $posts = Post::orderBy('id', 'desc')->take(10)->get();
             // 
             
-            $posts = Post::orderBy('updated_at', 'desc')->get();
-            dd($posts);
-            return view('blog.index');
+           
+            return view('blog.index', [
+               'posts'=> Post::orderBy('updated_at', 'desc')->get()
+            ]);
         }
     
 
