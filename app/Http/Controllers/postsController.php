@@ -36,7 +36,7 @@ class postsController extends Controller
      */
     public function create()
     {
-        //
+        return view('blog.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class postsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd('Redirected to the store method');
     }
 
     /**

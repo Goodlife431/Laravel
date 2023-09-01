@@ -35,19 +35,19 @@ Route::get('/', homeController::class);
 //Route::get('/blog/{name}', [postsController::class, 'show'])->whereAlpha('name');
 
 //GET
-Route::get('/blog', [postsController::class, 'index'])->name('blog.index');
-Route::get('/blog/{id}', [postsController::class, 'show'])->name('blog.show');
+// Route::get('/blog/create', [postsController::class, 'create'])->name('blog.create');
+// Route::get('/blog', [postsController::class, 'index'])->name('blog.index');
+// Route::get('/blog/{id}', [postsController::class, 'show'])->name('blog.show');
 
-//POST
-Route::get('/blog/create', [postsController::class, 'create'])->name('blog.create');
-Route::post('/blog', [postsController::class, 'store'])->name('blog.store');
+// //POST
+// Route::post('/blog', [postsController::class, 'store'])->name('blog.store');
 
-//PUT AND PATCH
-Route::get('blog/edit/{id}', [postsController::class, 'edit'])->name('blog.edit');
-Route::patch('/blog/{id}', [postsController::class, 'update'])->name('blog.update');
+// //PUT AND PATCH
+// Route::get('blog/edit/{id}', [postsController::class, 'edit'])->name('blog.edit');
+// Route::patch('/blog/{id}', [postsController::class, 'update'])->name('blog.update');
 
-//delete
-Route::delete('/blog/{id}', [postsController::class, 'destroy'])->name('blog.destroy');
+// //delete
+// Route::delete('/blog/{id}', [postsController::class, 'destroy'])->name('blog.destroy');
 
 //multiple http verbs 
 // Route::match(['get', 'post'], '/blog', [postsController::class, 'index']);
@@ -61,14 +61,11 @@ Route::delete('/blog/{id}', [postsController::class, 'destroy'])->name('blog.des
 
 //route chaining
 Route::prefix('/blog')->group( function () {
-    Route::get('/blog', [postsController::class, 'index'])->name('blog.index');
-    Route::get('/blog/{id}', [postsController::class, 'show'])->name('blog.show');
-
-    Route::get('/blog/create', [postsController::class, 'create'])->name('blog.create');
-    Route::post('/blog', [postsController::class, 'store'])->name('blog.store');
-
-    Route::get('blog/edit/{id}', [postsController::class, 'edit'])->name('blog.edit');
-    Route::patch('/blog/{id}', [postsController::class, 'update'])->name('blog.update');
-
-    Route::delete('/blog/{id}', [postsController::class, 'destroy'])->name('blog.destroy');
+    Route::get('/create', [postsController::class, 'create'])->name('blog.create');
+    Route::get('/', [postsController::class, 'index'])->name('blog.index');
+    Route::get('/{id}', [postsController::class, 'show'])->name('blog.show');
+    Route::post('/', [postsController::class, 'store'])->name('blog.store');
+    Route::get('/edit/{id}', [postsController::class, 'edit'])->name('blog.edit');
+    Route::patch('/{id}', [postsController::class, 'update'])->name('blog.update');
+    Route::delete('/{id}', [postsController::class, 'destroy'])->name('blog.destroy');
 });
