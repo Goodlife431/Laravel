@@ -23,7 +23,7 @@ use Barryvdh\Debugbar\Facade as Debugbar;
 
 // Route::resource('blog', postsController::class);
 
-Route::get('/', homeController::class);
+// Route::get('/', homeController::class);
 //where function for intergers and strings 
 //regex expression for numbers 
 //Route::get('/blog/{id?}', [postsController::class, 'show'])->where('id', '[0-9]+' );
