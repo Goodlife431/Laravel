@@ -82,17 +82,33 @@ class postsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('blog.edit', [
+            'post'=> Post::where('id', $id)->first()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => [
+                'required',
+                'unique:posts,title,' . $id,
+                'max:255',
+            ],
+            'excerpt' => 'required',
+            'body' => 'required|max:60',
+            'image_path' => 'mimes:jpg,png,jpeg',
+            'min_to_read' => 'numeric|min:0|max:60',
+        ]);
+    
+        Post::where('id', $id)->update($validatedData);
+    
+        return redirect(route('blog.index'));
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */
