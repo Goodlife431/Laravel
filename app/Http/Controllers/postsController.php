@@ -44,6 +44,16 @@ class postsController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'title' => ['required', 'unique:posts', 'max:255'],
+            'excerpt' => 'required',
+            'body' => ['required', 'min:0', 'max:60'],
+            'image_path' => ['mimes:jpg,png,jpeg'],
+            'min_to_read' => ['min:0', 'max:60']
+        ];
+        
+        $request->validate($rules);
+        
 
         Post::create([
             'title'=> $request->title,
