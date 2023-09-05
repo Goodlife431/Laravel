@@ -33,6 +33,17 @@
             </a>
         </div>
     </div>
+    @if (session()->has('message'))
+        <div class="mx-auto w-4/5 pb-10">
+            <div class="bg-red-500 text-white font bold rounded-t px-4 py-2">
+                Warning
+        </div>
+        <div class="border border-t-1 bg-red-400 text-white rounded-b bg-red-100 px-4 py-3
+             text-red-700">
+                {{ session()->get('message') }}
+            </div>
+        </div>
+    @endif
     
     @foreach ($posts as $post)
       
@@ -61,6 +72,14 @@
                     border-b-1 border-green-400">
                     Edit
                 </a>
+
+                <form action="{{ route('blog.destroy', $post->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="pt-3 text-red-500 pr-3" type="submit">
+                        Delete
+                    </button>
+                </form>
             </div>
         </div>
     </div>

@@ -112,9 +112,11 @@ class postsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        Post::destroy($id);
+
+        return redirect(route('blog.index'))->with('message', 'Post has been deleted.');
     }
 
     private function storeImages($request){
