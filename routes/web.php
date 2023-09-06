@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\postsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,16 +29,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-//route chaining
-// Route::prefix('/blog')->group( function () {
-//     Route::get('/create', [postsController::class, 'create'])->name('blog.create');
-//     Route::get('/', [postsController::class, 'index'])->name('blog.index');
-//     Route::get('/{id}', [postsController::class, 'show'])->name('blog.show');
-//     Route::post('/', [postsController::class, 'store'])->name('blog.store');
-//     Route::get('/edit/{id}', [postsController::class, 'edit'])->name('blog.edit');
-//     Route::patch('/{id}', [postsController::class, 'update'])->name('blog.update');
-//     Route::delete('/{id}', [postsController::class, 'destroy'])->name('blog.destroy');
-// });
-
-Route::resource('blog', postsController::class);
